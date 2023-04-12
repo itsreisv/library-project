@@ -21,12 +21,12 @@ function addBookToLibrary(titleValue, authorValue, pagesValue) {
      titleValue = document.querySelector('#title').value ;
      authorValue = document.querySelector('#author').value ;
      pagesValue = document.querySelector('#pages').value ;
-    new Book(titleValue, authorValue, pagesValue) ;
-    myLibrary.push(Book);
+    const newBook = new Book(titleValue, authorValue, pagesValue) ;
+    myLibrary.push(newBook);
    }
 
 function addBooks() {
-  for(Book of myLibrary) {
+  for(let newBook of myLibrary) {
     const container = document.querySelector("#card-box");
     const content = document.createElement('div');
     const title = document.createElement('p');
@@ -46,8 +46,6 @@ function addBooks() {
     remove.textContent = 'Remove';
     content.appendChild(remove);
     container.appendChild(content);
- 
-
   }
 }
 
