@@ -2,8 +2,8 @@
 let myLibrary = [];
 
 
-fullSend();
-function fullSend() {
+fullUse();
+function fullUse() {
 document.querySelector('#submit').addEventListener('click', () => {
 addBookToLibrary();
 addBooks();
@@ -43,9 +43,12 @@ function addBooks() {
     content.appendChild(pages);
     toggle.textContent = 'Toggle';
     content.appendChild(toggle);
+    toggle.classList.add('toggle');
     remove.textContent = 'Remove';
     content.appendChild(remove);
+    remove.classList.add('remove');
     container.appendChild(content);
+    return;
   }
 }
 

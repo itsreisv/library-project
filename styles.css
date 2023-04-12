@@ -161,5 +161,32 @@ p {
   display: flex;
 }
 
+.toggle {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  background-color: lightgreen;
+
+}
+
+.toggle:checked {
+  background-color: red;
+}
+
+.remove {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #D3D3D3;
+  font-size: 20px;
+}
+
+.remove:hover {
+  background-color: #8e8e8e ;
+}
+
 
 
