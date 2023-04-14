@@ -167,7 +167,6 @@ p {
   border-radius: 5px;
   border: none;
   font-size: 20px;
-  background-color: lightgreen;
 
 }
 
@@ -188,5 +187,21 @@ p {
   background-color: #8e8e8e ;
 }
 
+.toggle-on {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  background-color: lightgreen;
+}
 
+.toggle-off {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  background-color: red;
+}
 

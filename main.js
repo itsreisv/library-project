@@ -1,13 +1,16 @@
-
 let myLibrary = [];
 
-
 fullUse();
+
 function fullUse() {
 document.querySelector('#submit').addEventListener('click', () => {
 addBookToLibrary();
 addBooks();
+removeBook();
+toggleStatus();
+return;
 })}
+
 
 
 function Book(title, author, pages, read) {
@@ -17,16 +20,19 @@ function Book(title, author, pages, read) {
   this.read = read;
   }
 
-function addBookToLibrary(titleValue, authorValue, pagesValue) {
-     titleValue = document.querySelector('#title').value ;
-     authorValue = document.querySelector('#author').value ;
-     pagesValue = document.querySelector('#pages').value ;
-    const newBook = new Book(titleValue, authorValue, pagesValue) ;
+
+function addBookToLibrary() {
+     let titleValue = document.querySelector('#title').value ;
+     let authorValue = document.querySelector('#author').value ;
+     let pagesValue = document.querySelector('#pages').value ;
+     let read = document.querySelector('.check').checked ;
+    const newBook = new Book(titleValue, authorValue, pagesValue, read) ;
     myLibrary.push(newBook);
+    return;
    }
 
 function addBooks() {
-  for(let newBook of myLibrary) {
+    let newBook = myLibrary[myLibrary.length - 1];
     const container = document.querySelector("#card-box");
     const content = document.createElement('div');
     const title = document.createElement('p');
@@ -41,17 +47,49 @@ function addBooks() {
     content.appendChild(author);
     pages.textContent =  document.querySelector('#pages').value ;
     content.appendChild(pages);
-    toggle.textContent = 'Toggle';
+    toggle.textContent = 'Read';
     content.appendChild(toggle);
     toggle.classList.add('toggle');
     remove.textContent = 'Remove';
     content.appendChild(remove);
     remove.classList.add('remove');
     container.appendChild(content);
+    if(newBook.read) {
+      toggle.textContent = 'Read';
+      toggle.classList.add('toggle-on');
+    } else {
+      toggle.textContent = "Not Read";
+      toggle.classList.add('toggle-off');
+    }
     return;
   }
-}
 
+function removeBook() {
+    document.querySelectorAll('.remove').forEach(button => {
+    button.addEventListener('click', () => {
+      event.target.parentNode.remove();
+      myLibrary.splice(1,1);
+      return;
+})})}
+
+function toggleStatus() {
+  document.querySelectorAll('.toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      if(event.target.classList.contains('toggle-on')) {
+        event.target.classList.remove('toggle-on')
+        event.target.classList.add('toggle-off')
+        event.target.textContent = 'Not Read'
+      } else if (event.target.classList.contains('toggle-off')) {
+        event.target.classList.remove('toggle-off');
+        event.target.classList.add('toggle-on');
+        event.target.textContent = "Read"
+        return;
+      }
+
+    }
+  )}
+
+  )}
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
