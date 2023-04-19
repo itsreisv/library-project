@@ -73,8 +73,8 @@ function removeBook() {
 })})}
 
 function toggleStatus() {
-  document.querySelectorAll('.toggle').forEach(button => {
-    button.addEventListener('click', () => {
+  document.querySelectorAll('.toggle').forEach(el => {
+    el.addEventListener('click', () => {
       if(event.target.classList.contains('toggle-on')) {
         event.target.classList.remove('toggle-on')
         event.target.classList.add('toggle-off')
@@ -85,7 +85,6 @@ function toggleStatus() {
         event.target.textContent = "Read"
         return;
       }
-
     }
   )}
 
