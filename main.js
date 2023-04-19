@@ -1,15 +1,18 @@
 let myLibrary = [];
 
+
 fullUse();
+
 
 function fullUse() {
 document.querySelector('#submit').addEventListener('click', () => {
 addBookToLibrary();
 addBooks();
-removeBook();
 toggleStatus();
+removeBook();
 return;
 })}
+
 
 
 
@@ -18,14 +21,26 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.read =  document.querySelectorAll('.toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      if(event.target.classList.contains('toggle-on')) {
+        event.target.classList.remove('toggle-on')
+        event.target.classList.add('toggle-off')
+        event.target.textContent = 'Not Read'
+      } else if (event.target.classList.contains('toggle-off')) {
+        event.target.classList.remove('toggle-off');
+        event.target.classList.add('toggle-on');
+        event.target.textContent = "Read"
   }
+  })})}
+
 
 
 function addBookToLibrary() {
      let titleValue = document.querySelector('#title').value ;
      let authorValue = document.querySelector('#author').value ;
      let pagesValue = document.querySelector('#pages').value ;
-     let read = document.querySelector('.check').checked ;
+     let read = document.querySelector('#check').checked ;
     const newBook = new Book(titleValue, authorValue, pagesValue, read) ;
     myLibrary.push(newBook);
     return;
@@ -73,8 +88,8 @@ function removeBook() {
 })})}
 
 function toggleStatus() {
-  document.querySelectorAll('.toggle').forEach(el => {
-    el.addEventListener('click', () => {
+  document.querySelectorAll('.toggle').forEach(button => {
+    button.addEventListener('click', () => {
       if(event.target.classList.contains('toggle-on')) {
         event.target.classList.remove('toggle-on')
         event.target.classList.add('toggle-off')
