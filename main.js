@@ -21,7 +21,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.read =  document.querySelectorAll('.toggle').forEach(button => {
+  this.isRead =  document.querySelectorAll('.toggle').forEach(button => {
     button.addEventListener('click', () => {
       if(event.target.classList.contains('toggle-on')) {
         event.target.classList.remove('toggle-on')
